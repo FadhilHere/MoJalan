@@ -106,7 +106,7 @@
         android:background="@drawable/rounded_edittext"/>
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/register_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -128,7 +128,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/register"
+            android:id="@+id/loginText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" Login"

@@ -1,5 +1,6 @@
 package com.example.mojalan
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.FragmentActivity
@@ -42,6 +43,19 @@ class OnboardingActivity : FragmentActivity() {
 
         // Start auto scrolling
         handler.postDelayed(autoScrollRunnable, 2000) // Start scrolling after 5 seconds
+
+        // Check if onboarding is completed
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                if (position == layouts.size - 1) {
+                    // Onboarding completed, navigate to LoginActivity
+                    val intent = Intent(this@OnboardingActivity, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish() // Finish the OnboardingActivity
+                }
+            }
+        })
     }
 
     override fun onDestroy() {
