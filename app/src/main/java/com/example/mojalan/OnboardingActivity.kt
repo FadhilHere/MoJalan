@@ -16,13 +16,15 @@ class OnboardingActivity : FragmentActivity() {
     private val autoScrollRunnable = object : Runnable {
         override fun run() {
             if (currentPage == onboardingAdapter.itemCount - 1) {
-                // Stop auto scrolling when reaching the last page
-                handler.removeCallbacks(this)
+                // Onboarding complete, start LoginActivity
+                val intent = Intent(this@OnboardingActivity, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
                 return
             }
             currentPage++
             viewPager.setCurrentItem(currentPage, true)
-            handler.postDelayed(this, 2000) // 5000 milliseconds = 5 seconds
+            handler.postDelayed(this, 2000)
         }
     }
 
@@ -42,20 +44,7 @@ class OnboardingActivity : FragmentActivity() {
         viewPager.adapter = onboardingAdapter
 
         // Start auto scrolling
-        handler.postDelayed(autoScrollRunnable, 2000) // Start scrolling after 5 seconds
-
-        // Check if onboarding is completed
-        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                if (position == layouts.size - 1) {
-                    // Onboarding completed, navigate to LoginActivity
-                    val intent = Intent(this@OnboardingActivity, LoginActivity::class.java)
-                    startActivity(intent)
-                    finish() // Finish the OnboardingActivity
-                }
-            }
-        })
+        handler.postDelayed(autoScrollRunnable, 2000)
     }
 
     override fun onDestroy() {
@@ -64,5 +53,3 @@ class OnboardingActivity : FragmentActivity() {
         handler.removeCallbacks(autoScrollRunnable)
     }
 }
-
-

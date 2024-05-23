@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_beranda"
+        android:icon="@drawable/nav_beranda"
+        android:title="Beranda" />
+    <item
+        android:id="@+id/nav_jelajah"
+        android:icon="@drawable/nav_jelajah"
+        android:title="Jelajah" />
+    <item
+        android:id="@+id/nav_rencana"
+        android:icon="@drawable/nav_rencana"
+        android:title="Rencana" />
+    <item
+        android:id="@+id/nav_profil"
+        android:icon="@drawable/nav_profil"
+        android:title="Profil" />
+</menu>

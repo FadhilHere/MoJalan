@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Selamat Datang"
+        android:fontFamily="@font/poppins_bold"
         android:textColor="@color/primary"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -38,6 +39,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:gravity="center"
+        android:fontFamily="@font/poppins_regular"
         android:text="Temukan destinasi indah, rencanakan petualangan yang tak terlupakan, dan jelajahi dunia dengan kenyamanan.
 Mari mulai perjalanan baru anda!"
         android:textSize="18sp"

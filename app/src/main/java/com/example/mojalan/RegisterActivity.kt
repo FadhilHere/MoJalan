@@ -21,6 +21,11 @@ class RegisterActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
+
+        binding.backButton.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
         binding.registerButton.setOnClickListener {
             val email = binding.email.text.toString()
             val pass = binding.password.text.toString()
