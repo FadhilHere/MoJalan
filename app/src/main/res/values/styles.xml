@@ -1,0 +1,9 @@
+<resources>
+    <!-- Existing styles can be here -->
+
+    <style name="ShapeAppearanceOverlay.App.BottomCornerCut" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">24dp</item>
+        <item name="cornerSizeBottomRight">24dp</item>
+    </style>
+</resources>

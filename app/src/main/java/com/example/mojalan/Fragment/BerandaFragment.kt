@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mojalan.Fragment.TempatWisataFragment
+
 
 class BerandaFragment : Fragment() {
 
@@ -41,6 +44,16 @@ class BerandaFragment : Fragment() {
             TourGuide(R.drawable.galih, "Galih M Zimran", "★★★★★", "Alam", "Kota", "Tangerang")
         ))
         recyclerViewTourGuide.adapter = tourGuideAdapter
+
+        // Tambahkan listener untuk "Lihat Semua"
+        val lihatSemuaTextView: TextView = view.findViewById(R.id.lihat_semua)
+        lihatSemuaTextView.setOnClickListener {
+            // Navigasi ke TempatWisataFragment
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, TempatWisataFragment())
+                .addToBackStack(null)
+                .commit()
+        }
 
         return view
     }
