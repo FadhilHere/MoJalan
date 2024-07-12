@@ -1,0 +1,7 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FFFFFF"/> <!-- Warna isi lingkaran, sesuaikan dengan kebutuhan Anda -->
+    <corners android:radius="50dp"/> <!-- Mengatur radius sudut untuk membuat lingkaran -->
+    <stroke
+        android:width="2dp"
+        android:color="#000000"/> <!-- Warna garis tepi dan ketebalan garis tepi lingkaran, sesuaikan dengan kebutuhan Anda -->
+</shape>

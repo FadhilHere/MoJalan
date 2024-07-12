@@ -11,6 +11,6 @@ class RencanaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_rencana, container, false)
+        return inflater.inflate(R.layout.rencana1, container, false)
     }
 }
