@@ -5,9 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mojalan.Fragment.DetailTourGuideFragment
 
-class TourGuideAdapter(private val items: List<TourGuide>) : RecyclerView.Adapter<TourGuideAdapter.ViewHolder>() {
+class TourGuideAdapter(
+    private val items: List<TourGuide>,
+    private val activity: FragmentActivity
+) : RecyclerView.Adapter<TourGuideAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.tour_guide_image)
@@ -31,18 +36,17 @@ class TourGuideAdapter(private val items: List<TourGuide>) : RecyclerView.Adapte
         holder.tag1View.text = item.tag1
         holder.tag2View.text = item.tag2
         holder.locationView.text = item.location
+
+        holder.itemView.setOnClickListener {
+            val fragment = DetailTourGuideFragment.newInstance(item)
+            activity.supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
 }
-
-data class TourGuide(
-    val imageResId: Int,
-    val name: String,
-    val rating: String,
-    val tag1: String,
-    val tag2: String,
-    val location: String
-)

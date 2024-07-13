@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mojalan.Fragment.TempatWisataFragment
 
-
 class BerandaFragment : Fragment() {
 
     private lateinit var recyclerViewLiburan: RecyclerView
@@ -39,10 +38,19 @@ class BerandaFragment : Fragment() {
         recyclerViewTourGuide = view.findViewById(R.id.recycler_view_tour_guide)
         recyclerViewTourGuide.layoutManager = LinearLayoutManager(context)
         tourGuideAdapter = TourGuideAdapter(listOf(
-            TourGuide(R.drawable.galih, "Galih M Zimran", "★★★★★", "Alam", "Kota", "Tangerang"),
-            TourGuide(R.drawable.galih, "Galih M Zimran", "★★★★★", "Alam", "Kota", "Tangerang"),
-            TourGuide(R.drawable.galih, "Galih M Zimran", "★★★★★", "Alam", "Kota", "Tangerang")
-        ))
+            TourGuide(
+                R.drawable.galih, "Budi Santoso", "★★★★★", "Alam", "Kota", "Pekanbaru",
+                "Deskripsi Budi Santoso", "Indonesia, Inggris", "Rp 350.000,00",
+                listOf(R.drawable.popular2, R.drawable.popular1),
+                listOf(Comment("User1", "Komentar 1"), Comment("User2", "Komentar 2"))
+            ),
+            TourGuide(
+                R.drawable.galih, "Ahmad Hidayat", "★★★★★", "Alam", "Kota", "Bali",
+                "Deskripsi Ahmad Hidayat", "Indonesia, Inggris", "Rp 350.000,00",
+                listOf(R.drawable.popular3, R.drawable.popular3),
+                listOf(Comment("User1", "Komentar 1"), Comment("User2", "Komentar 2"))
+            )
+        ), requireActivity())
         recyclerViewTourGuide.adapter = tourGuideAdapter
 
         // Tambahkan listener untuk "Lihat Semua"

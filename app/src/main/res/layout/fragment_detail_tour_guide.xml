@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".Fragment.DetailTourGuideFragment">
+
+    <!-- Header -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:src="@drawable/ic_mojalan_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo" />
+
+    <!-- Tour guide details -->
+    <TextView
+        android:id="@+id/detail_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Detail Tour Guide"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/back_button"
+        app:layout_constraintStart_toEndOf="@id/back_button"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/detail_tour_guide_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detail_title" />
+
+    <TextView
+        android:id="@+id/detail_tour_guide_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Galih Muhammad Zimran"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/detail_tour_guide_image"
+        app:layout_constraintTop_toTopOf="@id/detail_tour_guide_image" />
+
+    <TextView
+        android:id="@+id/detail_tour_guide_rating"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="★★★★★"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/detail_tour_guide_image"
+        app:layout_constraintTop_toBottomOf="@id/detail_tour_guide_name" />
+
+    <!-- Tags -->
+    <TextView
+        android:id="@+id/detail_tour_guide_tag_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/tag_background"
+        android:padding="4dp"
+        android:text="Alam"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@id/detail_tour_guide_tag_2"
+        app:layout_constraintStart_toEndOf="@id/detail_tour_guide_image"
+        app:layout_constraintTop_toBottomOf="@id/detail_tour_guide_rating" />
+
+    <TextView
+        android:id="@+id/detail_tour_guide_tag_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/tag_background"
+        android:padding="4dp"
+        android:text="Kota"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/detail_tour_guide_tag_1"
+        app:layout_constraintTop_toBottomOf="@id/detail_tour_guide_rating" />
+
+    <TextView
+        android:id="@+id/detail_tour_guide_tag_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/tag_background"
+        android:padding="4dp"
+        android:text="Sejarah"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/detail_tour_guide_tag_2"
+        app:layout_constraintTop_toBottomOf="@id/detail_tour_guide_rating" />
+
+    <LinearLayout
+        android:id="@+id/location_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@id/detail_tour_guide_image"
+        app:layout_constraintTop_toBottomOf="@id/detail_tour_guide_tag_3">
+
+        <ImageView
+            android:id="@+id/location_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/ic_location_blue" />
+
+        <TextView
+            android:id="@+id/detail_tour_guide_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Bandung"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/location_layout" />
+
+    <!-- Description -->
+
+    <TextView
+        android:id="@+id/detail_tour_guide_description_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Halo, aku Galih Muhammad Zimran"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider" />
+
+    <TextView
+        android:id="@+id/detail_tour_guide_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Sebagai tour guide yang penuh semangat. Dengan wawasan mendalam tentang sejarah dan budaya, saya menyajikan pengalaman wisata yang tak terlupakan. Keahlian komunikasi dan kehangatan saya membuat setiap perjalanan menjadi petualangan yang menyenangkan. Mari berkeliling bersama untuk menciptakan kenangan indah!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detail_tour_guide_description_title" />
+
+    <!-- Languages Layout -->
+    <LinearLayout
+        android:id="@+id/languages_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detail_tour_guide_description">
+
+        <ImageView
+            android:id="@+id/languages_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_languange" />
+
+        <TextView
+            android:id="@+id/detail_tour_guide_languages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bahasa: Indonesia, Melayu, Minang"
+            android:textColor="@color/primary" />
+    </LinearLayout>
+
+    <!-- Price -->
+    <TextView
+        android:id="@+id/detail_tour_guide_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Rp 350.000,00 / hari"
+        android:textColor="@color/success"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/languages_layout" />
+
+    <!-- Button -->
+    <Button
+        android:id="@+id/button_book"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/primary"
+        android:textColor="@android:color/white"
+        android:text="Temani Wisatamu!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detail_tour_guide_price" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
