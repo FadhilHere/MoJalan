@@ -52,6 +52,25 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="16sp"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_marginBottom="4dp"/>
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textSize="10dp"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Masukkan nama anda"
+        android:inputType="textPersonName"
+        android:background="@drawable/rounded_edittext"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Email"
         android:textSize="16sp"
         android:fontFamily="@font/poppins_bold"
@@ -104,6 +123,13 @@
         android:hint="Masukkan konfirmasi password anda"
         android:inputType="textPassword"
         android:background="@drawable/rounded_edittext"/>
+
+    <Spinner
+        android:id="@+id/roleSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/role_array" />
+
 
     <Button
         android:id="@+id/register_button"

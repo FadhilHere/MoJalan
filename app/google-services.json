@@ -1,10 +1,30 @@
 {
   "project_info": {
     "project_number": "718305717911",
+    "firebase_url": "https://mojalanapp-default-rtdb.firebaseio.com",
     "project_id": "mojalanapp",
     "storage_bucket": "mojalanapp.appspot.com"
   },
   "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718305717911:android:33ddd38752ce3cd4b083d2",
+        "android_client_info": {
+          "package_name": "com.example.belajarfirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHhr_7F2hmZLs3OxXVy_XY_A3RcV26SRM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
     {
       "client_info": {
         "mobilesdk_app_id": "1:718305717911:android:0fb3730161a40ce7b083d2",

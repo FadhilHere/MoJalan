@@ -21,6 +21,11 @@
         </activity>
 
         <activity
+            android:name=".TourGuideActivity"
+            android:exported="false">
+        </activity>
+
+        <activity
             android:name=".LoginActivity"
             android:exported="false">
         </activity>
@@ -40,4 +45,7 @@
         </activity>
 
     </application>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 </manifest>

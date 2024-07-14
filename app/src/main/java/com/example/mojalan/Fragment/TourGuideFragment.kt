@@ -7,15 +7,21 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mojalan.Comment
 import com.example.mojalan.R
 import com.example.mojalan.TourGuide
 import com.example.mojalan.TourGuideAdapter
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class TourGuideFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: TourGuideAdapter
+    private lateinit var database: DatabaseReference
+    private lateinit var tourGuideList: MutableList<TourGuide>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,47 +31,27 @@ class TourGuideFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.recycler_view_tour_guide)
         recyclerView.layoutManager = LinearLayoutManager(context)
-
-        // Creating instances of TourGuide with all parameters
-        adapter = TourGuideAdapter(
-            listOf(
-                TourGuide(
-                    imageResId = R.drawable.galih,
-                    name = "Budi Santoso",
-                    rating = "★★★★★",
-                    tag1 = "Alam",
-                    tag2 = "Kota",
-                    location = "Pekanbaru",
-                    description = "Deskripsi Budi Santoso",
-                    languages = "Indonesia, Inggris",
-                    price = "Rp 350.000,00",
-                    experience = listOf(R.drawable.popular1, R.drawable.popular2),
-                    comments = listOf(
-                        Comment("User1", "Komentar 1"),
-                        Comment("User2", "Komentar 2")
-                    )
-                ),
-                TourGuide(
-                    imageResId = R.drawable.galih,
-                    name = "Ahmad Hidayat",
-                    rating = "★★★★★",
-                    tag1 = "Alam",
-                    tag2 = "Kota",
-                    location = "Bali",
-                    description = "Deskripsi Ahmad Hidayat",
-                    languages = "Indonesia, Inggris",
-                    price = "Rp 350.000,00",
-                    experience = listOf(R.drawable.popular1, R.drawable.popular2),
-                    comments = listOf(
-                        Comment("User3", "Komentar 3"),
-                        Comment("User4", "Komentar 4")
-                    )
-                )
-            ),
-            activity = requireActivity()
-        )
-
+        tourGuideList = mutableListOf()
+        adapter = TourGuideAdapter(tourGuideList, requireActivity())
         recyclerView.adapter = adapter
+
+        database = FirebaseDatabase.getInstance().reference.child("tourGuides")
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                tourGuideList.clear()
+                for (dataSnapshot in snapshot.children) {
+                    val tourGuide = dataSnapshot.getValue(TourGuide::class.java)
+                    if (tourGuide != null) {
+                        tourGuideList.add(tourGuide)
+                    }
+                }
+                adapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Handle possible errors.
+            }
+        })
 
         return view
     }
