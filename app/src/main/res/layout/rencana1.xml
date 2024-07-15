@@ -43,7 +43,6 @@
         android:gravity="center"
         android:orientation="vertical">
 
-
         <TextView
             android:id="@+id/textViewTitle"
             android:layout_width="wrap_content"
@@ -64,14 +63,16 @@
         <Button
             android:id="@+id/login_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="38dp"
             android:layout_marginBottom="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:backgroundTint="@color/primary"
+            android:background="@drawable/rounded_button"
             android:text="Buat"
-            android:textColor="@android:color/white" />
-
+            android:textSize="17dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:gravity="center" />
 
     </LinearLayout>
 

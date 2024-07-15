@@ -22,8 +22,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Back"
             android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:tint="@android:color/black"/>
+            android:layout_centerVertical="true" />
 
         <!-- Title -->
         <TextView

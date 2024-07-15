@@ -1,5 +1,4 @@
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mojalan">
 
     <application
@@ -11,37 +10,30 @@
         android:theme="@style/Theme.MoJalan">
 
         <activity android:name=".NotificationActivity" />
-
         <activity android:name=".ChatActivity" />
-
-        <activity
-            android:name=".OnboardingActivity"
-            android:exported="false">
-        </activity>
-
-        <activity
-            android:name=".HomeActivity"
-            android:exported="false">
-        </activity>
-
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false">
-        </activity>
-
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="false">
-        </activity>
-
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+        <activity android:name=".OnboardingActivity" android:exported="false" />
+        <activity android:name=".HomeActivity" android:exported="false" />
+        <activity android:name=".LoginActivity" android:exported="false" />
+        <activity android:name=".RegisterActivity" android:exported="false" />
+        <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Add the new activities -->
+        <activity android:name=".rencana1Activity" android:exported="false" />
+        <activity android:name=".rencana2Activity" android:exported="false" />
+        <activity android:name=".Rencana3Activity" android:exported="false" />
+        <activity android:name=".Rencana4Activity" android:exported="false" />
+        <activity android:name=".Rencana5Activity" android:exported="false" />
+        <activity android:name=".Rencana6Activity" android:exported="false" />
+        <activity android:name=".Rencana7Activity" android:exported="false" />
+        <activity android:name=".Rencana8Activity" android:exported="false" />
+        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".EditProfileActivity"></activity>
+        <activity android:name=".UlasanActivity"></activity>
+        <activity android:name=".PesananUserActivity"></activity>
 
     </application>
 </manifest>

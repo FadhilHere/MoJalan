@@ -48,7 +48,8 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_edit"
-            android:layout_marginStart="16dp"/>
+            android:layout_marginStart="16dp"
+            android:id="@+id/editButton"/>
     </LinearLayout>
 
     <!-- Menu Section -->
@@ -72,7 +73,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:padding="8dp">
+                android:padding="8dp"
+                android:id="@+id/menuPesanan">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -100,7 +102,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:padding="8dp">
+                android:padding="8dp"
+                android:id="@+id/menuRencanaPerjalanan">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -128,7 +131,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:padding="8dp">
+                android:padding="8dp"
+                android:id="@+id/menuNotifikasi">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -156,7 +160,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:padding="8dp">
+                android:padding="8dp"
+                android:id="@+id/menuPromo">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -184,7 +189,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:padding="8dp">
+                android:padding="8dp"
+                android:id="@+id/menuPenilaian">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -222,7 +228,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:padding="8dp">
+                android:padding="8dp"
+                android:id="@+id/menuBantuan">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -250,7 +257,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:padding="8dp">
+                android:padding="8dp"
+                android:id="@+id/menuNilaiKami">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -278,7 +286,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:padding="8dp">
+                android:padding="8dp"
+                android:id="@+id/menuPengaturan">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -315,5 +324,6 @@
         android:gravity="center"
         android:drawableLeft="@drawable/ic_exit"
         android:drawablePadding="8dp"
-        android:contentDescription="Keluar"/>
+        android:contentDescription="Keluar"
+        android:id="@+id/logoutButton"/>
 </LinearLayout>

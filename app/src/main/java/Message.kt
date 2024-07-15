@@ -1,4 +1,4 @@
-package com.example.yourappname
+package com.example.mojalan
 
 data class Message(
     val text: String,
