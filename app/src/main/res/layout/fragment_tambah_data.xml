@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginBottom="2dp"
+            android:src="@drawable/ic_mojalan_text" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tambahkan Data Diri"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Lengkap"
+            android:background="@drawable/rounded_edittext"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/etLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Asal Daerah"
+            android:background="@drawable/rounded_edittext"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/etPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Harga Per Wisata"
+            android:background="@drawable/rounded_edittext"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Biodata Wisata"
+            android:background="@drawable/rounded_edittext"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:id="@+id/etLanguages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Bahasa Yang Digunakan"
+            android:background="@drawable/rounded_edittext"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/etTag1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tag 1"
+            android:background="@drawable/rounded_edittext"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/etTag2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tag 2"
+            android:background="@drawable/rounded_edittext"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload Foto Anda"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
+
+        <Button
+            android:id="@+id/btnUploadImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pilih Gambar"
+            android:backgroundTint="#0175D8"
+            android:textColor="@android:color/white"
+            android:padding="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload Pengalaman"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
+
+        <Button
+            android:id="@+id/btnUploadExperience"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pilih Gambar Pengalaman"
+            android:backgroundTint="#0175D8"
+            android:textColor="@android:color/white"
+            android:padding="16dp" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tambahkan"
+            android:backgroundTint="#0175D8"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="24dp"
+            android:padding="16dp" />
+
+    </LinearLayout>
+</ScrollView>

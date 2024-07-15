@@ -1,0 +1,28 @@
+<resources>
+    <!-- Existing styles can be here -->
+
+    <style name="ShapeAppearanceOverlay.App.BottomCornerCut" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">24dp</item>
+        <item name="cornerSizeBottomRight">24dp</item>
+    </style>
+
+    <!-- Add this new style for rounded corners -->
+    <style name="ShapeAppearance.App.CornerSizeSmall" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="CustomBottomNavigationView" parent="Widget.Design.BottomNavigationView">
+        <item name="itemIconTint">@color/white</item>
+        <item name="itemTextColor">@color/white</item>
+        <item name="itemBackground">@android:color/white</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSizeSmall" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+
+</resources>
