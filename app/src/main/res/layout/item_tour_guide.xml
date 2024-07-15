@@ -18,7 +18,8 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="16dp"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CornerSizeSmall" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -71,11 +72,25 @@
             </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tour_guide_location"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tangerang"
-            android:textSize="12sp" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/location_icon"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_location_blue"
+                android:layout_marginEnd="4dp"/>
+
+            <TextView
+                android:id="@+id/tour_guide_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tangerang"
+                android:textSize="12sp" />
+        </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

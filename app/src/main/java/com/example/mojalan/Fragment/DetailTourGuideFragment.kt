@@ -38,14 +38,24 @@ class DetailTourGuideFragment : Fragment() {
                 .load(it.imageUrl)
                 .into(binding.detailTourGuideImage)
 
+            Glide.with(requireContext())
+                .load(it.experienceUrl)
+                .into(binding.detailTourGuideExperience)
+
             binding.detailTourGuideName.text = it.name
             binding.detailTourGuideRating.text = it.rating
             binding.detailTourGuideTag1.text = it.tag1
             binding.detailTourGuideTag2.text = it.tag2
             binding.detailTourGuideLocation.text = it.location
+            binding.detailTourGuideDescriptionTitle.text = "Halo, aku ${it.name}"
             binding.detailTourGuideDescription.text = it.description
-            binding.detailTourGuideLanguages.text = it.languages
-            binding.detailTourGuidePrice.text = it.price
+            binding.detailTourGuideLanguages.text = "Bahasa: ${it.languages}"
+            binding.detailTourGuidePrice.text = "Rp ${it.price},00 / hari"
+        }
+
+        // Set click listener for back button
+        binding.backButton.setOnClickListener {
+            requireActivity().onBackPressed()
         }
     }
 
@@ -66,4 +76,3 @@ class DetailTourGuideFragment : Fragment() {
             }
     }
 }
-

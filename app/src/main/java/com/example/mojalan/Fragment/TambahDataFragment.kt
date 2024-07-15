@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.mojalan.R
 import com.example.mojalan.TourGuide
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -45,6 +46,8 @@ class TambahDataFragment : Fragment() {
     private val PICK_EXPERIENCE_REQUEST = 2
     private val STORAGE_PERMISSION_CODE = 100
 
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -64,6 +67,7 @@ class TambahDataFragment : Fragment() {
 
         database = FirebaseDatabase.getInstance().reference
         storageReference = FirebaseStorage.getInstance().reference
+        auth = FirebaseAuth.getInstance()
 
         btnUploadImage.setOnClickListener {
             if (checkAndRequestPermissions()) {
@@ -142,8 +146,10 @@ class TambahDataFragment : Fragment() {
         val tag2 = etTag2.text.toString()
 
         if (name.isNotEmpty() && location.isNotEmpty() && price.isNotEmpty() && description.isNotEmpty() && languages.isNotEmpty() && tag1.isNotEmpty() && tag2.isNotEmpty() && imageUri != null && experienceUri != null) {
-            val tourGuideId = database.child("tourGuides").push().key
-            if (tourGuideId != null) {
+            val currentUser = auth.currentUser
+            val userId = currentUser?.uid
+
+            if (userId != null) {
                 val imageRef = storageReference.child("images/${UUID.randomUUID()}")
                 val experienceRef = storageReference.child("experiences/${UUID.randomUUID()}")
 
@@ -162,9 +168,12 @@ class TambahDataFragment : Fragment() {
                                             tag1 = tag1,
                                             tag2 = tag2,
                                             imageUrl = imageUrl.toString(),
-                                            experienceUrl = experienceUrl.toString()
+                                            experienceUrl = experienceUrl.toString(),
+                                            customerCount = 0,
+                                            tourCount = 0,
+                                            totalEarnings = 0.0
                                         )
-                                        database.child("tourGuides").child(tourGuideId).setValue(tourGuide).addOnCompleteListener {
+                                        database.child("tourGuides").child(userId).setValue(tourGuide).addOnCompleteListener {
                                             if (it.isSuccessful) {
                                                 Toast.makeText(context, "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show()
                                                 clearFields()

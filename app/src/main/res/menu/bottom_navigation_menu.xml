@@ -3,17 +3,21 @@
     <item
         android:id="@+id/nav_beranda"
         android:icon="@drawable/nav_beranda"
-        android:title="Beranda" />
+        android:title="Beranda"
+        android:background="@null"/>
     <item
         android:id="@+id/nav_jelajah"
         android:icon="@drawable/nav_jelajah"
-        android:title="Jelajah" />
+        android:title="Jelajah"
+        android:background="@null"/>
     <item
         android:id="@+id/nav_rencana"
         android:icon="@drawable/nav_rencana"
-        android:title="Rencana" />
+        android:title="Rencana"
+        android:background="@null"/>
     <item
         android:id="@+id/nav_profil"
         android:icon="@drawable/nav_profil"
-        android:title="Profil" />
+        android:title="Profil"
+        android:background="@null"/>
 </menu>

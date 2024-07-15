@@ -1,77 +1,224 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    tools:context=".Fragment.DashboardFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
         <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_mojalan_text" />
+
+        <!-- Profile Image -->
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgProfile"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_gravity="center"
             android:layout_marginBottom="16dp"
-            android:src="@drawable/galih" />
+            android:src="@drawable/galih"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CornerSizeSmall" />
 
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="wrap_content"
+        <!-- Profile Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nama Lengkap"
-            android:textSize="24sp"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Galih Muhammad Zimran"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Deskripsi Tour Guide"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView
+                    android:id="@+id/tvLanguages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bahasa: Indonesia, Melayu, Minang"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvRegion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bandung"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp 1.230.000,00 / hari"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Statistics Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <!-- Jumlah Pelanggan Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jumlah Pelanggan"
+                        android:textSize="16sp"
+                        android:layout_gravity="center" />
+                    <TextView
+                        android:id="@+id/tvJumlahPelanggan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Jumlah Wisata Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jumlah Wisata"
+                        android:textSize="16sp"
+                        android:layout_gravity="center" />
+                    <TextView
+                        android:id="@+id/tvJumlahWisata"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Total Pendapatan Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Pendapatan"
+                        android:textSize="16sp"
+                        android:layout_gravity="center" />
+                    <TextView
+                        android:id="@+id/tvTotalPendapatan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 1.230.000"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/success"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <!-- Experience ImageView -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pengalaman Tour Guide"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginTop="16dp" />
 
-        <TextView
-            android:id="@+id/tvDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Deskripsi Tour Guide"
-            android:textSize="16sp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp" />
-
-        <TextView
-            android:id="@+id/tvLanguages"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bahasa yang Dikuasai"
-            android:textSize="16sp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp" />
-
-        <TextView
-            android:id="@+id/tvRegion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Asal Daerah"
-            android:textSize="16sp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp" />
-
-        <TextView
-            android:id="@+id/tvPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Harga per Wisata"
-            android:textSize="16sp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp" />
-
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgExperience"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
-            android:src="@drawable/galih" />
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/galih"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CornerSizeSmall" />
 
         <!-- Bisa tambahkan elemen lain jika diperlukan -->
+
     </LinearLayout>
 </ScrollView>
