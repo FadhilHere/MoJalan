@@ -8,9 +8,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mojalan.Fragment.DetailTourGuideFragment
 import com.example.mojalan.Fragment.TempatWisataFragment
 
-class BerandaFragment : Fragment() {
+class BerandaFragment : Fragment(), TourGuideAdapter.OnTourGuideClickListener {
 
     private lateinit var recyclerViewLiburan: RecyclerView
     private lateinit var liburanAdapter: RekomendasiLiburanAdapter
@@ -39,18 +40,36 @@ class BerandaFragment : Fragment() {
         recyclerViewTourGuide.layoutManager = LinearLayoutManager(context)
         tourGuideAdapter = TourGuideAdapter(listOf(
             TourGuide(
-                R.drawable.galih, "Budi Santoso", "★★★★★", "Alam", "Kota", "Pekanbaru",
-                "Deskripsi Budi Santoso", "Indonesia, Inggris", "Rp 350.000,00",
-                listOf(R.drawable.popular2, R.drawable.popular1),
-                listOf(Comment("User1", "Komentar 1"), Comment("User2", "Komentar 2"))
+                name = "Budi Santoso",
+                rating = "★★★★★",
+                tag1 = "Alam",
+                tag2 = "Kota",
+                location = "Pekanbaru",
+                description = "Deskripsi Budi Santoso",
+                languages = "Indonesia, Inggris",
+                price = "Rp 350.000,00",
+                imageUrl = "D:\\Kuliah\\Semester 4\\Mobile\\MoJalan\\app\\src\\main\\res\\drawable\\galih.jpeg",
+                experienceUrl = "D:\\Kuliah\\Semester 4\\Mobile\\MoJalan\\app\\src\\main\\res\\drawable\\galih.jpeg",
+                customerCount = 10,
+                tourCount = 5,
+                totalEarnings = 1750000.0
             ),
             TourGuide(
-                R.drawable.galih, "Ahmad Hidayat", "★★★★★", "Alam", "Kota", "Bali",
-                "Deskripsi Ahmad Hidayat", "Indonesia, Inggris", "Rp 350.000,00",
-                listOf(R.drawable.popular3, R.drawable.popular3),
-                listOf(Comment("User1", "Komentar 1"), Comment("User2", "Komentar 2"))
+                name = "Ahmad Hidayat",
+                rating = "★★★★★",
+                tag1 = "Alam",
+                tag2 = "Kota",
+                location = "Bali",
+                description = "Deskripsi Ahmad Hidayat",
+                languages = "Indonesia, Inggris",
+                price = "Rp 350.000,00",
+                imageUrl = "https://example.com/path/to/image2.jpg",
+                experienceUrl = "https://example.com/path/to/experience2.jpg",
+                customerCount = 12,
+                tourCount = 7,
+                totalEarnings = 2450000.0
             )
-        ), requireActivity())
+        ), this)
         recyclerViewTourGuide.adapter = tourGuideAdapter
 
         // Tambahkan listener untuk "Lihat Semua"
@@ -64,5 +83,13 @@ class BerandaFragment : Fragment() {
         }
 
         return view
+    }
+
+    override fun onTourGuideClick(tourGuide: TourGuide) {
+        val detailFragment = DetailTourGuideFragment.newInstance(tourGuide)
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, detailFragment)
+            .addToBackStack(null)
+            .commit()
     }
 }

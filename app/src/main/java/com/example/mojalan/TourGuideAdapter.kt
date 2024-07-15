@@ -5,48 +5,54 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mojalan.Fragment.DetailTourGuideFragment
+import com.bumptech.glide.Glide
 
 class TourGuideAdapter(
-    private val items: List<TourGuide>,
-    private val activity: FragmentActivity
-) : RecyclerView.Adapter<TourGuideAdapter.ViewHolder>() {
+    private val tourGuideList: List<TourGuide>,
+    private val listener: OnTourGuideClickListener
+) : RecyclerView.Adapter<TourGuideAdapter.TourGuideViewHolder>() {
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = itemView.findViewById(R.id.tour_guide_image)
-        val nameView: TextView = itemView.findViewById(R.id.tour_guide_name)
-        val ratingView: TextView = itemView.findViewById(R.id.tour_guide_rating)
-        val tag1View: TextView = itemView.findViewById(R.id.tour_guide_tag_1)
-        val tag2View: TextView = itemView.findViewById(R.id.tour_guide_tag_2)
-        val locationView: TextView = itemView.findViewById(R.id.tour_guide_location)
+    interface OnTourGuideClickListener {
+        fun onTourGuideClick(tourGuide: TourGuide)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TourGuideViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_tour_guide, parent, false)
-        return ViewHolder(view)
+        return TourGuideViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = items[position]
-        holder.imageView.setImageResource(item.imageResId)
-        holder.nameView.text = item.name
-        holder.ratingView.text = item.rating
-        holder.tag1View.text = item.tag1
-        holder.tag2View.text = item.tag2
-        holder.locationView.text = item.location
+    override fun onBindViewHolder(holder: TourGuideViewHolder, position: Int) {
+        val tourGuide = tourGuideList[position]
 
+        // Set data to views
+        holder.tourGuideName.text = tourGuide.name
+        holder.tourGuideRating.text = tourGuide.rating
+        holder.tourGuideTag1.text = tourGuide.tag1
+        holder.tourGuideTag2.text = tourGuide.tag2
+        holder.tourGuideLocation.text = tourGuide.location
+
+        // Load image using Glide
+        Glide.with(holder.itemView.context)
+            .load(tourGuide.imageUrl)
+            .into(holder.tourGuideImage)
+
+        // Set click listener
         holder.itemView.setOnClickListener {
-            val fragment = DetailTourGuideFragment.newInstance(item)
-            activity.supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, fragment)
-                .addToBackStack(null)
-                .commit()
+            listener.onTourGuideClick(tourGuide)
         }
     }
 
     override fun getItemCount(): Int {
-        return items.size
+        return tourGuideList.size
+    }
+
+    class TourGuideViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val tourGuideImage: ImageView = itemView.findViewById(R.id.tour_guide_image)
+        val tourGuideName: TextView = itemView.findViewById(R.id.tour_guide_name)
+        val tourGuideRating: TextView = itemView.findViewById(R.id.tour_guide_rating)
+        val tourGuideTag1: TextView = itemView.findViewById(R.id.tour_guide_tag_1)
+        val tourGuideTag2: TextView = itemView.findViewById(R.id.tour_guide_tag_2)
+        val tourGuideLocation: TextView = itemView.findViewById(R.id.tour_guide_location)
     }
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.mojalan.TourGuide
 import com.example.mojalan.databinding.FragmentDetailTourGuideBinding
 
@@ -32,7 +33,11 @@ class DetailTourGuideFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tourGuide?.let {
-            binding.detailTourGuideImage.setImageResource(it.imageResId)
+            // Load image using Glide
+            Glide.with(requireContext())
+                .load(it.imageUrl)
+                .into(binding.detailTourGuideImage)
+
             binding.detailTourGuideName.text = it.name
             binding.detailTourGuideRating.text = it.rating
             binding.detailTourGuideTag1.text = it.tag1
@@ -61,3 +66,4 @@ class DetailTourGuideFragment : Fragment() {
             }
     }
 }
+

@@ -16,7 +16,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class TourGuideFragment : Fragment() {
+class TourGuideFragment : Fragment(), TourGuideAdapter.OnTourGuideClickListener {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: TourGuideAdapter
@@ -32,7 +32,7 @@ class TourGuideFragment : Fragment() {
         recyclerView = view.findViewById(R.id.recycler_view_tour_guide)
         recyclerView.layoutManager = LinearLayoutManager(context)
         tourGuideList = mutableListOf()
-        adapter = TourGuideAdapter(tourGuideList, requireActivity())
+        adapter = TourGuideAdapter(tourGuideList, this)
         recyclerView.adapter = adapter
 
         database = FirebaseDatabase.getInstance().reference.child("tourGuides")
@@ -54,5 +54,13 @@ class TourGuideFragment : Fragment() {
         })
 
         return view
+    }
+
+    override fun onTourGuideClick(tourGuide: TourGuide) {
+        val detailFragment = DetailTourGuideFragment.newInstance(tourGuide)
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, detailFragment)
+            .addToBackStack(null)
+            .commit()
     }
 }

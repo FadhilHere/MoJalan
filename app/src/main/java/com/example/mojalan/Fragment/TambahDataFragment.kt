@@ -1,4 +1,5 @@
 package com.example.mojalan.Fragment
+
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
@@ -17,6 +18,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.mojalan.R
+import com.example.mojalan.TourGuide
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -26,10 +28,12 @@ import java.util.UUID
 class TambahDataFragment : Fragment() {
 
     private lateinit var etName: EditText
-    private lateinit var etRegion: EditText
+    private lateinit var etLocation: EditText
     private lateinit var etPrice: EditText
     private lateinit var etDescription: EditText
     private lateinit var etLanguages: EditText
+    private lateinit var etTag1: EditText
+    private lateinit var etTag2: EditText
     private lateinit var btnAdd: Button
     private lateinit var btnUploadImage: Button
     private lateinit var btnUploadExperience: Button
@@ -48,10 +52,12 @@ class TambahDataFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_tambah_data, container, false)
 
         etName = view.findViewById(R.id.etName)
-        etRegion = view.findViewById(R.id.etRegion)
+        etLocation = view.findViewById(R.id.etLocation)
         etPrice = view.findViewById(R.id.etPrice)
         etDescription = view.findViewById(R.id.etDescription)
         etLanguages = view.findViewById(R.id.etLanguages)
+        etTag1 = view.findViewById(R.id.etTag1)
+        etTag2 = view.findViewById(R.id.etTag2)
         btnAdd = view.findViewById(R.id.btnAdd)
         btnUploadImage = view.findViewById(R.id.btnUploadImage)
         btnUploadExperience = view.findViewById(R.id.btnUploadExperience)
@@ -128,12 +134,14 @@ class TambahDataFragment : Fragment() {
 
     private fun uploadData() {
         val name = etName.text.toString()
-        val region = etRegion.text.toString()
+        val location = etLocation.text.toString()
         val price = etPrice.text.toString()
         val description = etDescription.text.toString()
         val languages = etLanguages.text.toString()
+        val tag1 = etTag1.text.toString()
+        val tag2 = etTag2.text.toString()
 
-        if (name.isNotEmpty() && region.isNotEmpty() && price.isNotEmpty() && description.isNotEmpty() && languages.isNotEmpty() && imageUri != null && experienceUri != null) {
+        if (name.isNotEmpty() && location.isNotEmpty() && price.isNotEmpty() && description.isNotEmpty() && languages.isNotEmpty() && tag1.isNotEmpty() && tag2.isNotEmpty() && imageUri != null && experienceUri != null) {
             val tourGuideId = database.child("tourGuides").push().key
             if (tourGuideId != null) {
                 val imageRef = storageReference.child("images/${UUID.randomUUID()}")
@@ -147,10 +155,12 @@ class TambahDataFragment : Fragment() {
                                     experienceRef.downloadUrl.addOnSuccessListener { experienceUrl ->
                                         val tourGuide = TourGuide(
                                             name = name,
-                                            region = region,
+                                            location = location,
                                             price = price,
                                             description = description,
                                             languages = languages,
+                                            tag1 = tag1,
+                                            tag2 = tag2,
                                             imageUrl = imageUrl.toString(),
                                             experienceUrl = experienceUrl.toString()
                                         )
@@ -183,21 +193,13 @@ class TambahDataFragment : Fragment() {
 
     private fun clearFields() {
         etName.text.clear()
-        etRegion.text.clear()
+        etLocation.text.clear()
         etPrice.text.clear()
         etDescription.text.clear()
         etLanguages.text.clear()
+        etTag1.text.clear()
+        etTag2.text.clear()
         imageUri = null
         experienceUri = null
     }
 }
-
-data class TourGuide(
-    val name: String = "",
-    val region: String = "",
-    val price: String = "",
-    val description: String = "",
-    val languages: String = "",
-    val imageUrl: String = "",
-    val experienceUrl: String = ""
-)
