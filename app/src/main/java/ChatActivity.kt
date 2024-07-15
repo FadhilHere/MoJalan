@@ -1,4 +1,4 @@
-package com.example.yourappname
+package com.example.mojalan
 
 import android.os.Bundle
 import android.widget.EditText

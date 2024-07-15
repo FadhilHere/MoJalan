@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoJalan">
 
+        <activity android:name=".NotificationActivity" />
+
+        <activity android:name=".ChatActivity" />
+
         <activity
             android:name=".OnboardingActivity"
             android:exported="false">

@@ -1,4 +1,4 @@
-package com.example.yourappname
+package com.example.mojalan
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ChatAdapter(private val messages: List<Message>) : RecyclerView.Adapter<ChatAdapter.MessageViewHolder>() {
+class ChatAdapter(private val messages: List<Message>) :
+    RecyclerView.Adapter<ChatAdapter.MessageViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_message, parent, false)
@@ -21,12 +22,13 @@ class ChatAdapter(private val messages: List<Message>) : RecyclerView.Adapter<Ch
     override fun getItemCount(): Int = messages.size
 
     class MessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val textViewMessage: TextView = itemView.findViewById(R.id.text_message)
-        private val textViewTimestamp: TextView = itemView.findViewById(R.id.text_timestamp)
+        private val messageTextView: TextView = itemView.findViewById(R.id.message_text)
+        private val timestampTextView: TextView = itemView.findViewById(R.id.message_timestamp)
 
         fun bind(message: Message) {
-            textViewMessage.text = message.text
-            textViewTimestamp.text = message.timestamp
+            messageTextView.text = message.text
+            timestampTextView.text = message.timestamp
         }
     }
 }
+
