@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -74,7 +73,9 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:padding="8dp"
-                android:id="@+id/menuPesanan">
+                android:id="@+id/menuPesanan"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -93,7 +94,8 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/ic_arrow_forward"/>
+                    android:src="@drawable/ic_arrow_forward"
+                    android:id="@+id/iconPesanan"/>
             </LinearLayout>
 
             <!-- Menu Item 2 -->
@@ -103,7 +105,9 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:padding="8dp"
-                android:id="@+id/menuRencanaPerjalanan">
+                android:id="@+id/menuRencanaPerjalanan"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -132,7 +136,9 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:padding="8dp"
-                android:id="@+id/menuNotifikasi">
+                android:id="@+id/menuNotifikasi"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -161,7 +167,9 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:padding="8dp"
-                android:id="@+id/menuPromo">
+                android:id="@+id/menuPromo"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -190,7 +198,9 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:padding="8dp"
-                android:id="@+id/menuPenilaian">
+                android:id="@+id/menuPenilaian"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -229,7 +239,9 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:padding="8dp"
-                android:id="@+id/menuBantuan">
+                android:id="@+id/menuBantuan"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -258,7 +270,9 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:padding="8dp"
-                android:id="@+id/menuNilaiKami">
+                android:id="@+id/menuNilaiKami"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="24dp"
@@ -287,7 +301,9 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:padding="8dp"
-                android:id="@+id/menuPengaturan">
+                android:id="@+id/menuPengaturan"
+                android:clickable="true"
+                android:focusable="true">
 
                 <ImageView
                     android:layout_width="24dp"

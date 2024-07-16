@@ -1,5 +1,6 @@
 package com.example.mojalan
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mojalan.databinding.ActivityProfileBinding
@@ -21,6 +22,14 @@ class ProfileActivity : AppCompatActivity() {
         // Add event listeners for menu items
         binding.menuPesanan.setOnClickListener {
             // Handle "Pesanan" menu item click
+            val intent = Intent(this, PesananUserActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.iconPesanan.setOnClickListener {
+            // Handle "Pesanan" icon click
+            val intent = Intent(this, PesananUserActivity::class.java)
+            startActivity(intent)
         }
 
         binding.menuRencanaPerjalanan.setOnClickListener {
